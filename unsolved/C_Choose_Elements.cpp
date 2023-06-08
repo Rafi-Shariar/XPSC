@@ -14,17 +14,20 @@ int main(){
     v.push_back(a);
   }
 
-  sort(v.rbegin(),v.rend());
+  sort(v.begin(),v.end());
+  reverse(v.begin(),v.end());
 
   long long int sum=0;
 
   for (int i = 0; i < k; i++)
   {
-    sum+=v[i];
+    if(v[i]>0) sum+=v[i];
   }
 
   if( sum<0) cout<<0<<endl;
   else cout<<sum<<endl;
+
+  // cout<<sum<<endl;
   
   
 

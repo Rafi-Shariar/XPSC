@@ -1,38 +1,25 @@
 #include<bits/stdc++.h>
 using namespace std;
+int main() {
+    int t;
+    cin >> t;
 
-int main(){
+    while (t--) {
+        int n, m;
+        cin>>n>>m;
 
-  int n,k;
-  cin>>n>>k;
+        bool ok = false;
 
- vector<int>v;
+        int dif = abs(n-m);
 
-  for (int i = 0; i < n; i++)
-  {
-    int a; cin>>a;
-    v.push_back(a);
-  }
-
-  sort(v.rbegin(),v.rend());
-
-  long long int sum=0;
-
-  for (int i = 0; i < k; i++)
-  {
-    sum+=v[i];
-  }
-
-  if( sum<0) cout<<0<<endl;
-  else cout<<sum<<endl;
-  
-  
-
-
-   
-   
- 
- 
+        if( dif%2==0) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    }
 
     return 0;
 }
+
+
+
+
+

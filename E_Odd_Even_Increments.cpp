@@ -1,17 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long int
-
 int main(){
 
-    string s;
-    cin>>s;
+    int n=10;
 
-    if(s[0]=='0') cout<<0<<endl;
-    else
+    int sum=1;
+
+    for (int i = 1; i <= n; i++)
     {
-        cout<<s.size()<<endl;
+        sum = sum*i;
     }
+
+    cout<<sum<<endl;
     
 
     

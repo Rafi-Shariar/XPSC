@@ -11,10 +11,16 @@ int main(){
     {
         for (int j = 0; j <=k; j++)
         {
-            for (int l = 0; l <= k; l++)
-            {
-                if(i+j+l==s)c++;
-            }
+            // for (int l = 0; l <= k; l++)
+            // {
+            //     if(i+j+l==s)c++;
+            // }
+
+            int l = s - (i+j);
+            // cout<<l<<" ";
+            if(l>=0 && l<=k){
+            if(i+j+l==s)c++; }
+            
             
         }
         

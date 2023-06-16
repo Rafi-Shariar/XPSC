@@ -1,21 +1,23 @@
-#include<stdio.h>
-
-int fac(int n){
-
-    if(n==1) return 1;
-
-    return n * fac(n-1);
-
-}
-
-
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
 int main(){
 
-   int n;
-   scanf("%d",&n); 
+  while (1)
+  {
+    /* code */
+  
+  
 
-   int ans = fac(n);
+    string s;
+    getline(cin,s);
 
-   printf("%d\n",ans);
+    reverse(s.begin(), s.end());
+
+    cout<<s<<endl;
+
+  }
+
+
     return 0;
 }

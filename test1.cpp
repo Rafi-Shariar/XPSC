@@ -1,19 +1,31 @@
 #include<stdio.h>
+int main(){
 
-struct student
-{
-    int ID;
-    float Age;
+  int n;
+  scanf("%d",&n);
 
-} one,two;
+  double a,b,c,x,y,z,avg=9999.9999;
 
-int main(void){
+  for (int i = 0; i < n; i++)
+  {
+     scanf("%lf %lf %lf",&a,&b,&c);
 
-    one.ID = 125;
-    two.Age = 25;
+     double sum = a+b+c;
+     double temp_avg = sum/3.00;
 
-    printf(" Ones's ID is %d and Age is %f", one.ID, two.Age);
+     if( temp_avg < avg){
+
+      avg = temp_avg;
+      x=a;
+      y=b;
+      z=c;
+     }
+  }
+
+  printf("%.2lf\n",avg);
+  printf("%.1lf %.1lf %.1lf\n",x,y,z);
+  
 
 
-    return 0;
+  return 0;
 }

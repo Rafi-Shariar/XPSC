@@ -3,21 +3,9 @@ using namespace std;
 #define ll long long int
 int main(){
 
-  while (1)
-  {
-    /* code */
-  
-  
+    double a = 120/(double)720;
 
-    string s;
-    getline(cin,s);
-
-    reverse(s.begin(), s.end());
-
-    cout<<s<<endl;
-
-  }
-
-
+    printf("%.2lf",a);
+    
     return 0;
 }

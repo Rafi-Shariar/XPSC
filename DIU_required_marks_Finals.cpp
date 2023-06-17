@@ -67,8 +67,6 @@ int main(){
         printf("Minimum requirment for CGPA 4.00 ---> %.1lf\n",aplus);
 
 
-
-
          double a = 77.00 - marks;
         if(a<0) a = 0.0;
         printf("Minimum requirment for CGPA 3.75 ---> %.1lf\n",a);

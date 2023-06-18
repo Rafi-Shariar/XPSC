@@ -3,18 +3,9 @@ using namespace std;
 #define ll long long int
 int main(){
 
-    string a = "e";
-    string b = "a";
+	int a = 011^100;
+	cout<<a;
 
 
-    int x = a[0];
-   int y = b[0];
-
-   cout<<x<<" "<<y<<endl;
-
-    int c = a[0]-b[0];
-
-
-    cout<<c<<endl;
-    return 0;
+	return 0;
 }

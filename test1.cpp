@@ -11,7 +11,7 @@ int main(){
 
         string ans;
 
-        ans += ans.substr(0,3);
+        ans += ans.substr();
 
         cout<<ans;
     }

@@ -15,17 +15,23 @@ int main(){
 
         string ans;
 
-        int k=0;
+        // int k = 0;
 
-        if(a[0]<b[0]){
+        char ca = a[0];
+        char cb = b[0];
 
-            k = b[0] - a[0];
-        }else if( a[0]>b[0])
-        {
-            k = 122 - a[0] + b[0];
-        }
+        // for (int i = 0; i < 26; i++)
+        // {
+        //     if(ca!=cb){
+        //         k++;
+        //         ca++;
+        //     }
+        // }
 
-        cout<<k<<endl;
+        int k = (b[0] - a[0]) % 26;
+
+        // cout<<k<<endl;
+        
 
         for (int i = 0; i < n; i++)
         {

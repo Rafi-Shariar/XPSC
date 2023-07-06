@@ -7,7 +7,10 @@ int main(){
 
     while (t--)
     {
-        cout<<1/2<<endl;
+        int n = 2;
+          ll ans = (1<<n);
+
+          cout<<ans;
     }
     
 

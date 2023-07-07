@@ -7,10 +7,7 @@ int main(){
 
     while (t--)
     {
-        int n = 2;
-          ll ans = (1<<n);
-
-          cout<<ans;
+        if(1==1==10) cout<<"yes"<<endl;
     }
     
 

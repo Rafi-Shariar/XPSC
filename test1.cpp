@@ -3,13 +3,14 @@ using namespace std;
 #define ll long long int
 int main(){
 
-    int t; cin>>t;
+   int a,b;
+   cin>>a>>b;
 
-    while (t--)
-    {
-        if(1==1==10) cout<<"yes"<<endl;
-    }
-    
+   if(b%a==0) cout<<1<<endl;
+   else{
+
+    cout<<(b/a) + 1<<endl;
+   }
 
 
     return 0;

@@ -9,9 +9,9 @@ int main (){
  
     for (int i = 1; i <=k; i++)
     {
-        if (temp%10==0) // last digit 0 hole
+        if (temp%10==0)
         {
-            temp=temp/10; // last digit bad dilam
+            temp=temp/10;
         }
         else
         {

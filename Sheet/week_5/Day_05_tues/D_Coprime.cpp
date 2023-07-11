@@ -20,23 +20,23 @@ int main(){
 
         for(int i=1; i<=n; i++) cin>>v[i];
 
-        int mx = INT_MIN;
+        int mx = -1;
 
-        for (int i = 1; i <= n; i++)
+        for (int i = n; i >= 1; i--)
         {
-            for (int j = 1; j <= n; j++)
+            for (int j = n; j >= 1; j--)
             {
                 int val = gcd(v[i],v[j]);
 
                 if( (i+j > mx) && val==1){
                     mx = i+j;
+                    break;
                 }
             }
             
         }
 
-        if(mx==INT_MIN) cout<<-1<<endl;
-        else cout<<mx<<endl;
+        cout<<mx<<endl;
         
 
 

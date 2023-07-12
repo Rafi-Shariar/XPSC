@@ -1,48 +1,51 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long int
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
-
-
 int main(){
-
+ 
     int t; cin>>t;
-
+ 
     while (t--)
     {
-        int n; cin>>n;
-        vector<int>v(n+1);
-
-        for(int i=1; i<=n; i++) cin>>v[i];
-
-        int mx = INT_MIN;
-
-        for (int i = 1; i <= n; i++)
+        ll n,k; cin>>n>>k;
+ 
+        vector<ll>steps(n);
+        vector<ll>legs(k);
+ 
+        for(int i=0; i<n; i++) cin>>steps[i];
+        for(int i=0; i<k; i++) cin>>legs[i];
+ 
+        vector<ll>ans;
+ 
+        for (int i = 0; i < k; i++)
         {
-            for (int j = 1; j <= n; j++)
+            ll sum = 0;
+            ll cur_leg = legs[i];
+            ll idx=0;
+ 
+            while (cur_leg>=steps[idx])
             {
-                int val = gcd(v[i],v[j]);
+                sum += steps[idx];
+                idx++;
 
-                if( (i+j > mx) && val==1){
-                    mx = i+j;
+                if(idx>=n){
+                    break;
                 }
+
+               
             }
+ 
+            ans.push_back(sum);
             
+ 
         }
-
-        if(mx==INT_MIN) cout<<-1<<endl;
-        else cout<<mx<<endl;
+ 
+        for(auto i : ans) cout<<i<<" ";
+        cout<<endl;
         
-
-
     }
     
-
-
+ 
+ 
     return 0;
 }

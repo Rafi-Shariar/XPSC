@@ -7,10 +7,11 @@ int main(){
 
     while (t--)
     {
-      int a=10^15;
-      
-      cout<<a<<endl;
+        int n,m;
+        cin>>n>>m;
 
+        if((n&1) && (m&1)) cout<<"NO"<<endl;
+        else cout<<"YES"<<endl;
     }
     
 

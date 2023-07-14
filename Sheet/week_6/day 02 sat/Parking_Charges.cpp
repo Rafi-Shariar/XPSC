@@ -3,15 +3,10 @@ using namespace std;
 #define ll long long int
 int main(){
 
-    int t; cin>>t;
+   int x,y,h; 
+   cin>>x>>y>>h;
 
-    while (t--)
-    {
-      int a=10^15;
-      
-      cout<<a<<endl;
-
-    }
+   cout<<x+(y* (h-1))<<endl;
     
 
 

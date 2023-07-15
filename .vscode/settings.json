@@ -3,7 +3,8 @@
         "*.tcc": "cpp",
         "ostream": "cpp",
         "iostream": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "limits": "cpp"
     },
     "cph.general.onceMaintainerMessage": false
 }

@@ -16,7 +16,11 @@ int main(){
         int b = 10 * ( s[3] - '0');
         b += (s[4] - '0');
 
-        cout<<a<<" "<<b<<endl;
+        if( (a > 12) && (b <= 12) ) cout<<"DD/MM/YYYY"<<endl;
+        else if ( (a <= 12) && (b > 12)) cout<<"MM/DD/YYYY"<<endl;
+        else cout<<"BOTH"<<endl;
+       
+  
     }
     
 

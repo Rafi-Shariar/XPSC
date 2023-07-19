@@ -19,7 +19,8 @@ int main(){
 
         for (int i = 1; i < n; i++)
         {
-            ans = min(ans, max(abs(v[i]-v[i-1] ) , abs(v[i] - v[i+1]) ));
+            int tmp = max(abs(v[i]-v[i-1] ) , abs(v[i] - v[i+1]) );
+            ans = min(ans, tmp);
         }
 
         ans = min ( ans, abs( v[n-1] - v[n-2]));

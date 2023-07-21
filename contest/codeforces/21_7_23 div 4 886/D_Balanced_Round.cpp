@@ -16,27 +16,29 @@ int main(){
 
         sort(v.begin(),v.end());
 
-        int i=0;
-        ll ans = 0;
+        ll i=0;
+        ll mx = 0;
 
         while (i<n)
         {
-            int j = i+1;
+            ll j = i+1;
 
             while (j<n)
             {
-                if(v[j] - v[j-1] > k) break;
+                if(v[j] - v[j-1] > k){
+                    break;
+                }
 
                 j++;
             }
 
             ll tt = j - i;
-            ans = max(ans,tt);
+            mx = max(mx,tt);
             i=j;
             
         }
 
-        cout<<n-ans<<endl;
+        cout<<n-mx<<endl;
         
 
             

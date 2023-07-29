@@ -24,10 +24,9 @@ int main(){
 
         for( int i = 0; i<n; i++) idx[i] = i;
 
-        sort(idx.begin(), idx.end());
-      
-
-        
+        stable_sort(idx.begin(), idx.end(), [&](int i, int j){
+            return v[i]> v[j];
+        });
 
           for (auto x : idx) {
             cout << x + 1 << ' ';

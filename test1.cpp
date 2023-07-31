@@ -1,47 +1,46 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
-int main(){
 
-    int t; cin>>t;
+int main() {
+    int t;
+    cin >> t;
 
-    while (t--)
-    {
-        int n,k;
-        cin>>n>>k;
+    while (t--) {
+        int n;
+        cin >> n;
 
-        vector<int>v(n);
-
-        for (int i = 0; i < n; i++)
-        {
-            cin>>v[i];
-            v[i]%=k;
-
-            if(!v[i]) v[i]=k;
+        vector<int> v;
+        for (int i = 0; i < n; i++) {
+            int a;
+            cin >> a;
+            v.push_back(a);
         }
 
-        vector<int>idx(n);
+        int mx = n;
+        int i = n - 1;
+        int j = n - 1;
+        int c=0;
 
-        for( int i = 0; i<n; i++) idx[i] = i;
+        while (c<=n) {
 
-        sort(idx.begin(), idx.end());
-      
+            cout<<i<<" ---> "<<j<<endl;
+
+            while (i >= 0 && v[i] != mx)
+                i--;
+
+            for (int x = i; x <= j; x++){
+                cout << v[x] << " ";
+                c++;
+
+            }
+
+            j = i - 1;
+            mx--;
 
         
-
-          for (auto x : idx) {
-            cout << x + 1 << ' ';
         }
-
-        cout << endl;
-
-
-
-
-        
     }
-    
-
 
     return 0;
 }

@@ -1,46 +1,57 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 #define ll long long int
+int main(){
 
-int main() {
-    int t;
-    cin >> t;
+    int t; cin>>t;
 
-    while (t--) {
-        int n;
-        cin >> n;
+    while (t--)
+    {
+        int n; cin>>n;
+        int arr[n+1];
+        map<int,int>frwd,bck;
 
-        vector<int> v;
-        for (int i = 0; i < n; i++) {
-            int a;
-            cin >> a;
-            v.push_back(a);
+        int sum=0;
+
+        for (int i = 1; i <= n; i++)
+        {
+            cin>>arr[i];
+            sum += arr[i];
+            frwd.insert({sum,i});
         }
 
-        int mx = n;
-        int i = n - 1;
-        int j = n - 1;
-        int c=0;
+        int sum2=0;
+        int idx=1;
 
-        while (c<=n) {
+        for (int i = n; i >= 1; i--)
+        {
+            sum2 += arr[i];
+            bck.insert({sum2,idx});
+            idx++;
 
-            cout<<i<<" ---> "<<j<<endl;
+        }
 
-            while (i >= 0 && v[i] != mx)
-                i--;
+        int mx =0;
 
-            for (int x = i; x <= j; x++){
-                cout << v[x] << " ";
-                c++;
+        for(auto i : frwd){
 
+            int cur_sum = i.first;
+
+            if( bck.find(cur_sum) != bck.end() ){
+
+                int f = i.second;
+                int b = bck[ cur_sum];
+
+                if(f+b<=n) mx = max(mx,f+b);
             }
-
-            j = i - 1;
-            mx--;
-
-        
         }
+
+        cout<<mx<<endl;
+        
+        
     }
+    
+
 
     return 0;
 }

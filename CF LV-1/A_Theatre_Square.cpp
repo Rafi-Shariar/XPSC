@@ -7,28 +7,29 @@ int main(){
    cin>>l>>w>>t;
 
    ll ans = 0;
+  
 
-   while (l>0)
+   if( l%t==0 ){
+    ans += l/t;
+   }else
    {
-     l -= t;
-     ans++;
+    ans += (l/t) + 1;
    }
 
-   w = w - t;
+   w = w-t;
+   ll x=0;
 
-   ll x = 0;
+   if(w>0){
 
-   while (w>0)
-   {
-     w -= t;
-     x++;
+    if(w%t==0) x += w/t;
+    else x += (w/t) + 1;
+
    }
 
    ll total = ans + (ans*x);
    cout<<total<<endl;
-   
-   
-   
+
+
 
 
     return 0;

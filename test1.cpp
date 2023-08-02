@@ -3,32 +3,35 @@ using namespace std;
 #define ll long long int
 int main(){
 
-   ll l,w,t;
-   cin>>l>>w>>t;
+    int t; cin>>t;
 
-   ll ans = 0;
+    while (t--)
+    {
+        int n; cin>>n;
+       deque<int>d;
 
-   while (l>0)
-   {
-     l -= t;
-     ans++;
-   }
+       for (int i = 0; i < n; i++)
+       {
+         int a; cin>>a;
+         d.push_back(a);
+       }
 
-   w = w - t;
+       while (!d.empty())
+       {
+          cout<<d.front()<<" ";
+          d.pop_front();
+          cout<<d.back()<<" ";
+          d.pop_back();
+       }
 
-   ll x = 0;
-
-   while (w>0)
-   {
-     w -= t;
-     x++;
-   }
-
-   ll total = ans + (ans*x);
-   cout<<total<<endl;
-   
-   
-   
+       cout<<endl;
+       
+       
+       
+        
+        
+    }
+    
 
 
     return 0;

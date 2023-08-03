@@ -15,7 +15,7 @@ int main(){
     bool small = false;
     if(s[0]>='a' && s[0]<='z') small = true;
 
-    if(cap==s.size() || (cap==s.size()-1) && small){
+    if((cap==s.size()-1) && small){
 
         for (int i = 0; i < s.size(); i++)
         {
@@ -26,17 +26,25 @@ int main(){
                 if(s[i]>='A' && s[i]<='Z') s[i] = s[i] + 32;
             }
 
-            cout<<s[i];
             
         }
 
         cout<<endl;
         
     }
-    else
-    {
-        cout<<s<<endl;
+    else if(cap==s.size()){
+
+        for (int i = 0; i < s.size(); i++)
+        {
+            if(s[i]>='A' && s[i]<='Z') s[i] = s[i] + 32;
+        }
+        
     }
+
+    
+    
+        cout<<s<<endl;
+    
     
     
 

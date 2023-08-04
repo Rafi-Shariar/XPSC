@@ -3,41 +3,66 @@ using namespace std;
 #define ll long long int
 int main(){
 
-    string s; cin>>s;
+    int t; cin>>t;
+    string s = "BAN";
 
-    int cap = 0;
-
-    for (int i = 0; i < s.size(); i++)
+    while (t--)
     {
-        if(s[i]>='A' && s[i]<='Z') cap++;
-    }
+        int n; cin>>n;
+        string tmp ;
 
-    bool small = false;
-    if(s[0]>='a' && s[0]<='z') small = true;
+        int l ,c;
+        vector<pair<int,int>>v;
 
-    if(cap==s.size() || (cap==s.size()-1) && small){
-
-        for (int i = 0; i < s.size(); i++)
+    /*    if(n==1){
+            cout<<1<<endl<<"1 2"<<endl;
+        }
+        if(n==2){
+            cout<<1<<endl<<"2 6"<<endl;
+        }
+        else
         {
-            if(i==0){
-                if(s[i]>='a' && s[i]<='z') s[i] = s[i] - 32;
-            }else
+            */
+            if(n%2==1){
+                c=1;
+                l=4;
+                v.push_back({1,2});
+
+                while (l< 3*n)
+                {
+                    int x = l+4;
+                    v.push_back({l,x});
+                    c++;
+                    l+=6;
+                }   
+
+            }
+            else
             {
-                if(s[i]>='A' && s[i]<='Z') s[i] = s[i] + 32;
+                l=1;
+                c=0;
+
+                  while (l< 3*n)
+                {
+                    int x = l+4;
+                    v.push_back({l,x});
+                    c++;
+                    l+=6;
+                }   
+
+
             }
 
-            cout<<s[i];
+            cout<<c<<endl;
+            for(auto i : v){
+                cout<<i.first<<" "<<i.second<<endl;
+            }
             
-        }
-
-        cout<<endl;
+      //  }
         
+
+
     }
-    else
-    {
-        cout<<s<<endl;
-    }
-    
     
 
 

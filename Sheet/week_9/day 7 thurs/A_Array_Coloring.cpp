@@ -8,17 +8,20 @@ int main(){
     while (t--)
     {
         int n; cin>>n;
-        string s; cin>>s;
-
-        int sz = s.size() - 1;
-        int ans = sz;
+        vector<int>v(n);
+        int od=0,ev=0;
 
         for (int i = 0; i < n; i++)
         {
-            if(s[i]=='>' || s[sz- i] == '<') ans = min(ans,i);
+            cin>>v[i];
+
+            if(v[i] & 1) od++;
+            else ev++;
         }
+
+        if(od%2==0) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
         
-        cout<<ans<<endl;
     }
     
 

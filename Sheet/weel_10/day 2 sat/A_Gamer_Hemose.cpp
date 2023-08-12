@@ -15,29 +15,19 @@ int main(){
 
         sort(v.rbegin(),v.rend());
 
-        ll x = v[0];
-        ll y = v[1];
+        int c=0;
+        int idx = 0;
 
-        if (h % (x+y) == 0) {
-
-			cout << 2*(h/(x+y));
-
-		} else if (h%(x+y)<=x) {
-
-			cout << 2*(h/(x+y))+1;
-
-		} 
-        else {
-
-			cout << 2*(h/(x+y))+2;
-		}
-		
-        cout<<endl;
-
-
-
-
-       
+        while (h>0)
+        {
+            h -= v[idx];
+            //cout<<v[idx]<<"--> "<<h<<endl;
+            c++;
+            if(idx == 0) idx = 1;
+            else idx = 0;
+        }
+        
+        cout<<c<<endl;
     }
     
 

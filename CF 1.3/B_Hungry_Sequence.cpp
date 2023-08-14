@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
 bool prime(int num){
 
    if (num <= 1)return false; 
@@ -14,4 +17,26 @@ bool prime(int num){
 
     return true;
     
+}
+
+int main(){
+
+    int n; cin>>n;
+    int c=0;
+
+    for (int i = 2; c<n ; i++)
+    {
+        if(prime(i)){
+            cout<<i<<" ";
+            c++;
+        }
+
+    }
+    
+    
+    
+    
+
+
+    return 0;
 }

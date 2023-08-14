@@ -1,46 +1,37 @@
-#include<bits/stdc++.h>
-using namespace std;
-#define ll long long int
-int main(){
+#include<stdio.h>
+#include<stdlib.h>
+struct Node{
+ int data;
+ struct Node *next;
+};
+int main()
+{
+    typedef struct Node lamia;
+    lamia *a,*b,*c;
+    a=(lamia*)malloc(sizeof(lamia));
+    b=(lamia*)malloc(sizeof(lamia));
+    c=(lamia*)malloc(sizeof(lamia));
+    a->data = 10;
+    b->data = 20;
+    c->data = 30;
+    a->next = b;
+    b->next = c;
+    c->next = NULL;
 
-    int t; cin>>t;
-
-    while (t--)
+    while(a!=NULL)
     {
-        int n,h;
-        cin>>n>>h;
-        vector<int>v(n);
-
-        for(int i=0; i<n; i++) cin>>v[i];
-
-        sort(v.rbegin(),v.rend());
-
-        ll x = v[0];
-        ll y = v[1];
-
-        if (h % (x+y) == 0) {
-
-			cout << 2*(h/(x+y));
-
-		} else if (h%(x+y)<=x) {
-
-			cout << 2*(h/(x+y))+1;
-
-		} 
-        else {
-
-			cout << 2*(h/(x+y))+2;
-		}
-		
-        cout<<endl;
-
-
-
-
-       
+        printf("%d->", *a);
+        a= a->next;
     }
-    
 
+    int count=0;
+    while(a!=NULL)
+    {
+        count++;
+        a=a->next;
+    }
 
-    return 0;
+    printf("\nTotal Node= %d\n",count);
+
+return 0;
 }

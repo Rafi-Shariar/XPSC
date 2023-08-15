@@ -1,37 +1,31 @@
-#include<stdio.h>
-#include<stdlib.h>
-struct Node{
- int data;
- struct Node *next;
-};
-int main()
-{
-    typedef struct Node lamia;
-    lamia *a,*b,*c;
-    a=(lamia*)malloc(sizeof(lamia));
-    b=(lamia*)malloc(sizeof(lamia));
-    c=(lamia*)malloc(sizeof(lamia));
-    a->data = 10;
-    b->data = 20;
-    c->data = 30;
-    a->next = b;
-    b->next = c;
-    c->next = NULL;
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+int main(){
 
-    while(a!=NULL)
-    {
-        printf("%d->", *a);
-        a= a->next;
-    }
+  int n; cin>>n;
+  int c=0;
 
-    int count=0;
-    while(a!=NULL)
-    {
-        count++;
-        a=a->next;
-    }
+  for (int i = 1; i <=n; i++)
+  {
+     for (int j = i; j <= n; j++)
+     {
+        int c = (i*i) + (j*j);
+        c = c*c;
 
-    printf("\nTotal Node= %d\n",count);
+        int c_sq = sqrt(c);
+        int cur = c_sq * c_sq;
 
-return 0;
+        cout<<c<<" "<<c_sq<<" "<<cur<<endl;
+
+        if( cur == c && c_sq<=n) c++;
+     }
+     
+  }
+
+  cout<<c<<endl;
+  
+
+
+    return 0;
 }

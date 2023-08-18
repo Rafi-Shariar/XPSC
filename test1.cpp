@@ -3,28 +3,51 @@ using namespace std;
 #define ll long long int
 int main(){
 
-  int n; cin>>n;
-  int c=0;
+   int n,k;
+   cin>>n>>k;
+   vector<char>fre(26,0);
+   map<char,int>mp;
+   string s; cin>>s;
 
-  for (int i = 1; i <=n; i++)
-  {
-     for (int j = i; j <= n; j++)
-     {
-        int c = (i*i) + (j*j);
-        c = c*c;
+   for (int i = 0; i < n; i++)
+   {
+     char a=s[i];
+     fre[a-'A']++;
 
-        int c_sq = sqrt(c);
-        int cur = c_sq * c_sq;
+   }
 
-        cout<<c<<" "<<c_sq<<" "<<cur<<endl;
+   sort(fre.rbegin(), fre.rend());
 
-        if( cur == c && c_sq<=n) c++;
-     }
-     
+
+  int i=0;
+  ll sum=0;
+
+  while (k && i<26)
+ {
+    ll c = fre[i];
+
+    if(k>=c){
+        k -= c;
+        sum += c*c;
+    }
+    else
+    {
+        sum += k*k;
+        break;
+    }
+
+    i++;
+    
+
   }
 
-  cout<<c<<endl;
+  cout<<sum<<endl;
   
+   
+   
+
+
+    
 
 
     return 0;

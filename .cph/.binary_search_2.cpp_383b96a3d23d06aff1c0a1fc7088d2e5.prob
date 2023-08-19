@@ -1,0 +1,1 @@
+{"name":"Local: binary_search_2","url":"f:\\phitron\\XPSC\\binary_search_2.cpp","tests":[{"id":1692347300028,"input":"9\n1 2 2 3 3 3 5 6 6\n3","output":"3"},{"id":1692347311896,"input":"11\n1 2 2 3 3 3 4 6 6 7 8\n5","output":"7"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\phitron\\XPSC\\binary_search_2.cpp","group":"local","local":true}

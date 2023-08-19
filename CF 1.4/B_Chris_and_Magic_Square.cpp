@@ -26,25 +26,22 @@ int main(){
         cout<<1<<endl;
         return 0;
     }
-    else if(n==498){
-      cout<<-1<<endl;
-      //return 0;
-    }
-    else if (n==7 && m==3 && y==3)
-    {
-         cout<<3250000000<<endl;
-      //return 0;
-    }
-    else if(n==2){
-        if(arr[0][0]==1 && arr[0][1]==2 && arr[1][0]==1 && arr[1][1]==0) cout<<-1<<endl;
-       // return 0;
-    }
-    else
-    {
-        
+    // else if(n==498){
+    //   cout<<-1<<endl;
+    //   //return 0;
+    // }
+    // else if (n==7 && m==3 && y==3)
+    // {
+    //      cout<<3250000000<<endl;
+    //   //return 0;
+    // }
+    // else if(n==2){
+    //     if(arr[0][0]==1 && arr[0][1]==2 && arr[1][0]==1 && arr[1][1]==0) cout<<-1<<endl;
+    //    // return 0;
+    // }
+   
     
     
-
     
     set<ll>st;
 
@@ -153,18 +150,14 @@ int main(){
         else cout<<-1<<endl;
     }
    
-
-
-
-
-
-            
+  
+           
            }
         }
         
     }
     
-    }
+    
     
     
     

@@ -1,0 +1,1 @@
+{"name":"Local: Reverse and Add","url":"f:\\phitron\\XPSC\\Reverse and Add.cpp","tests":[{"id":1692613724331,"input":"3\n195\n265\n750","output":"4 9339\n5 45254\n3 6666"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\phitron\\XPSC\\Reverse and Add.cpp","group":"local","local":true}

@@ -3,36 +3,67 @@ using namespace std;
 #define ll long long int
 int main(){
 
-    string s;int k;
-    cin>>s>>k;
+    int n; cin>>n;
+    vector<int>v(n);
+    int freq[3001]={0};
+    set<int>st;
+    int mx = INT_MIN;
 
-    int i=0;
-    char c = s[0];
-
-    while (k && i<s.size()-1)
+    for (int i = 0; i < n; i++)
     {
-        if(s[i]<s[i+1]){
-            swap(s[i],s[i+1]);
-            k--;
+        cin>>v[i];
+        freq[v[i]]++;
+        st.insert(v[i]);
+        mx = max(mx,v[i]);
+    }
 
-            if(s[i]> s[i-1]){
+    if(st.size()==n){
+        cout<<0<<endl;
+        return 0;
+    }
 
-                while(k && i>=0 && s[i]>=s[i-1]){
-                    swap(s[i],s[i-1]);
-                    k--;
-                    i--;
+    int c=0;
+    int cur;
 
+    for (int i = 0; i < n; i++)
+    {
+        if(freq[v[i]]<=1) continue;
+        else
+        { 
+             freq[v[i]]--;
+            int terms = freq[v[i]];
+
+            while (terms-->=1)
+            {
                 
+            cur = v[i]+1;
+            c++;
 
-                }
+            while (st.find(cur) == st.end())
+            {
+                cur++;
+                c++;
             }
+
+            st.insert(cur);
+
+            }
+            
         }
         
-        i++;
 
     }
 
-    cout<<s<<endl;
+    cout<<c<<endl;
+
+
+    
+    
+
+
+
+
+    
     
 
 

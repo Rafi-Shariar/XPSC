@@ -1,1 +1,1 @@
-{"name":"Local: test1","url":"f:\\phitron\\XPSC\\test1.cpp","tests":[{"id":1692613931210,"input":"3\n195\n265\n750","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\phitron\\XPSC\\test1.cpp","group":"local","local":true}
+{"name":"Local: test1","url":"f:\\phitron\\XPSC\\test1.cpp","tests":[{"id":1692613931210,"input":"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\phitron\\XPSC\\test1.cpp","group":"local","local":true}

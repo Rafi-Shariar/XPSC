@@ -1,175 +1,133 @@
-#include<bits/stdc++.h>
-using namespace std;
-#define ll long long int
-int main(){
+#include <stdio.h>
+#include <stdlib.h>
 
-    int n; cin>>n;
+struct Node {
+    int data;
+    struct Node* next;
+};
 
-    ll arr[n][n];
-    int m,y;
+struct LinkedList {
+    int sz;
+    struct Node* head;
+};
 
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            cin>>arr[i][j];
+struct Node* CreateNewNode(int value) {
+    struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
+    newnode->data = value;
+    newnode->next = NULL;
+    return newnode;
+}
 
-            if(arr[i][j]==0) {
-                m = i;
-                y=j;
-            }
-        }
-        
+void InsertAtHead(struct LinkedList* list, int value) {
+    struct Node* newnode = CreateNewNode(value);
+
+    if (list->head == NULL) {
+        list->head = newnode;
+        list->sz++;
+        return;
     }
 
-    if(n==1 && arr[0][0]==0){
-        cout<<1<<endl;
-        return 0;
+    newnode->next = list->head;
+    list->head = newnode;
+    list->sz++;
+}
+
+void Traverse(struct LinkedList* list) {
+    struct Node* a = list->head;
+    while (a != NULL) {
+        printf("%d ", a->data);
+        a = a->next;
     }
-    else if(n==498){
-      cout<<-1<<endl;
-      //return 0;
-    }
-    else if (n==7 && m==3 && y==3)
-    {
-         cout<<3250000000<<endl;
-      //return 0;
-    }
-    else if(n==2){
-        if(arr[0][0]==1 && arr[0][1]==2 && arr[1][0]==1 && arr[1][1]==0) cout<<-1<<endl;
-       // return 0;
-    }
-    else
-    {
-        
-    
-    
+    printf("\n");
+}
 
-    
-    set<ll>st;
-
-    for (int i = 0; i < n; i++)
-    {
-        if(i==m) continue;
-
-        ll sum = 0;
-
-        for (int j = 0; j < n; j++)
-        {
-            sum+=arr[i][j];
-        }
-
-        st.insert(sum);  
+void InsertAtAnyPosition(struct LinkedList* list, int index, int value) {
+    if (index < 0 || index > list->sz) {
+        return;
     }
 
-        set<ll>st2;
-
-    for (int i = 0; i < n; i++)
-    {
-        if(i==y) continue;
-
-        ll sum = 0;
-
-        for (int j = 0; j < n; j++)
-        {
-            sum+=arr[j][i];
-        }
-    
-
-        st2.insert(sum);  
+    if (index == 0) {
+        InsertAtHead(list, value);
+        return;
     }
 
-    if(st.size()>1 || st2.size()>1) cout<<-1<<endl;
-    else
-    {
-        ll row=0, col = 0;
-
-        for(int i=0; i<n; i++){
-            row += arr[m][i];
-            col += arr[i][y];
-        }
-
-        if(row==col){
-
-            ll find = *st.begin() - row;
-           if(find<=0) cout<<-1<<endl;
-           else{
-
-            arr[m][y] = find;
-
-            ll d1=0,d2=0;
-
-            for (int i = 0; i < n; i++)
-            {
-               for (int j = 0; j < n; j++)
-               {
-                  if(i==j) d1 += arr[i][j];
-               }
-               
-            }
-
-            int j=n-1;
-
-              for (int i = 0; i < n; i++)
-            {
-
-                d2 += arr[i][j];
-                j--;  
-            }
-
-           set<ll>xx,yy;
-
-         for (int i = 0; i < n; i++)
-        {
-
-        ll sum = 0;
-
-        for (int j = 0; j < n; j++)
-        {
-            sum+=arr[i][j];
-        }
-
-          xx.insert(sum);  
-       }
-
-        for (int i = 0; i < n; i++)
-    {
-
-        ll sum = 0;
-
-        for (int j = 0; j < n; j++)
-        {
-            sum+=arr[j][i];
-        }
-    
-
-        yy.insert(sum);  
+    struct Node* a = list->head;
+    int curr_index = 0;
+    while (curr_index != index - 1) {
+        a = a->next;
+        curr_index++;
     }
 
-    if(xx.size()>1 || yy.size()>1) cout<<-1<<endl;
-    else{
+    struct Node* newnode = CreateNewNode(value);
 
-        if(*xx.begin() == *yy.begin() && *yy.begin()==d1 && d1==d2) cout<<find<<endl;
-        else cout<<-1<<endl;
+    newnode->next = a->next;
+    a->next = newnode;
+    list->sz++;
+}
+
+void DeleteHead(struct LinkedList* list) {
+    if (list->head == NULL) {
+        return;
     }
-   
 
+    struct Node* a = list->head;
+    list->head = a->next;
+    free(a);
+    list->sz--;
+}
 
-
-
-
-            
-           }
-        }
-        
+void DeleteAnyIndex(struct LinkedList* list, int index) {
+    if (index < 0 || index >= list->sz) {
+        return;
     }
-    
-    }
-    
-    
-    
-    
 
+    if (index == 0) {
+        DeleteHead(list);
+        return;
+    }
+
+    struct Node* a = list->head;
+    int cur_index = 0;
+    while (cur_index != index - 1) {
+        a = a->next;
+        cur_index++;
+    }
+
+    struct Node* b = a->next;
+    a->next = b->next;
+    free(b);
+    list->sz--;
+}
+
+
+int main() {
+    struct LinkedList l;
+    l.head = NULL;
+    l.sz = 0;
+
+    InsertAtHead(&l, 10);
+    InsertAtHead(&l, 20);
+    InsertAtHead(&l, 40);
+    InsertAtHead(&l, 50);
+    printf("size of the list : %d\n", l.sz);
+
+    printf("Current linked list --> ");
+    Traverse(&l);
+
+    InsertAtAnyPosition(&l, 2, 100);
+    printf("After inserting at 100 at index-2 ---->   ");
+    Traverse(&l);
+    printf("Current size of the list :  %d\n", l.sz);
+
+    DeleteHead(&l);
+    printf("After deleting head ---->   ");
+
+    Traverse(&l);
+    printf("Current size after deleting head : %d\n", l.sz);
+
+    DeleteAnyIndex(&l, 3);
+    printf("After deleting  the value at index-3 ---->   ");
+    Traverse(&l);
 
     return 0;
 }

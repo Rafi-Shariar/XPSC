@@ -1,1 +1,1 @@
-{"name":"Local: test1","url":"f:\\phitron\\XPSC\\test1.cpp","tests":[{"id":1692613931210,"input":"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\phitron\\XPSC\\test1.cpp","group":"local","local":true}
+{"name":"Local: test1","url":"f:\\phitron\\XPSC\\test1.cpp","tests":[{"id":1692891707992,"input":"2\n1\nFancyCoder 1996\n2\nFancyCoder 1996\nxyz111 1997","output":"FancyCoder\nxyz111\nFancyCoder"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\phitron\\XPSC\\test1.cpp","group":"local","local":true}

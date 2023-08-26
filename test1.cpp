@@ -1,18 +1,35 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
+#define ll long long int
+void fast(){
+   ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+}
 
-int main() {
-    priority_queue<int, vector<int>, greater<int>> st;
+int main(){
 
-    st.push(10);
-    st.push(5);
-    st.push(20);
-    st.push(30);
+    fast();
 
-    while (!st.empty()) {
-        cout << st.top() << " ";
-        st.pop();
+    int t; cin>>t;
+
+    while (t--)
+    {
+       int n; cin>>n;
+       vector<pair<int,string>>v;
+
+       for (int i = 0; i < n; i++)
+       {
+          string s; cin>>s;
+          int a; cin>>a;
+          v.push_back({a,s});
+       }
+
+       sort(v.rbegin(), v.rend());
+
+       for(auto i : v) cout<<i.second<<endl;
+        
     }
+       
 
     return 0;
 }

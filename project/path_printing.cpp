@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+
 using namespace std;
 
 const int N = 1e5;
@@ -60,8 +61,12 @@ void print_shortest_path(int destination) {
 }
 
 int main(){
+
     map_assign();
+
     cin >> node >> edges;
+      
+    cout<<node<<edges;
 
     for (int i = 0; i < edges; i++) {
         int u, v, w;

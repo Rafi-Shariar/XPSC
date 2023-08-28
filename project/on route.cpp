@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+
 using namespace std;
 
 const int N = 1e5;
@@ -10,11 +11,11 @@ int node, edges;
 map<int,string>mp;
 
 void map_assign(){
-    mp[1] = "A";
-    mp[2] = "B";
-    mp[3] = "C";
-    mp[4] = "D";
-    mp[5] = "E";
+    mp[1] = "Mirpur";
+    mp[2] = "Banani";
+    mp[3] = "dhanmondi";
+    mp[4] = "farmgate";
+    mp[5] = "Gulshan";
 }
 
 void dijkstra(int src){
@@ -60,8 +61,11 @@ void print_shortest_path(int destination) {
 }
 
 int main(){
+
     map_assign();
+
     cin >> node >> edges;
+      
 
     for (int i = 0; i < edges; i++) {
         int u, v, w;
@@ -71,15 +75,32 @@ int main(){
         adj_list[v].push_back({u, w});
     }
 
-    int src = 1;
+   string frm,to;
+   cin>>frm>>to;
+
+   int f,t;
+
+   for(auto i : mp){
+
+    if(i.second == frm) f = i.first;
+    if(i.second == to) t = i.first;
+   }
+
+
+
+
+    int src = f;
     dijkstra(src);
 
-    for (int i = 1; i <= node; i++) {
-        cout << "Shortest distance from " << mp[src] << " to " << mp[i] << ": " << d[i] << endl;
-        cout << "Shortest path: ";
-        print_shortest_path(i);
-        cout << endl;
-    }
+    // for (int i = 1; i <= node; i++) {
+    //     cout << "Shortest distance from " << mp[src] << " to " << mp[i] << ": " << d[i] << endl;
+    //     cout << "Shortest path: ";
+    //     print_shortest_path(i);
+    //     cout << endl;
+    // }
+
+    cout << "Shortest distance from " << mp[f] << " to " << mp[t] << ": " << d[t] <<"km"<< endl;
+    print_shortest_path(t);
 
     return 0;
 }

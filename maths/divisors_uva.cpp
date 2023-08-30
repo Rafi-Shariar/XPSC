@@ -7,9 +7,7 @@ void fast(){
 }
 
 ll numberofDivisor( ll n){
-
     map<ll,int>mp;
-
     while( n%2==0){
         mp[2]++;
         n/=2;

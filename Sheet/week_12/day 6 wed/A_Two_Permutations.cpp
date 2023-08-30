@@ -10,14 +10,17 @@ int main(){
 
     fast();
 
-    ofstream output;
-    output.open("F:/phitron/XPSC/fao.txt");
+    int t; cin>>t;
 
-    for (int i = 0; i < 1000; i++)
+    while (t--)
     {
-        output<<"হেডা ভাই হেডা !"<<endl;
+        int a,b,n;
+        cin>>n>>a>>b;
+
+        if(a==b && b==n) cout<<"Yes"<<endl;
+        else if( a+b <= n-2) cout<<"Yes"<<endl;
+        else cout<<"No"<<endl;
     }
-    
        
 
     return 0;

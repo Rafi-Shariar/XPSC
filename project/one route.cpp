@@ -101,7 +101,7 @@ void sigle_destination(){
     int src = f;
     dijkstra(src);
 
-    cout<<"Shortest distance from "<<mp[f]<<"to"<<mp[t]<<": "<<d[t]<<" km"<<endl;
+    cout<<"Shortest distance from "<<mp[f]<<" to "<<mp[t]<<": "<<d[t]<<" km"<<endl;
     print_path(t);
 
 }

@@ -1,56 +1,16 @@
-#include<bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
 
-int prec(char ch){
-
-    if (ch=='+' || ch=='-')
-    {
-        return 0;
-    }else
-    {
-        return 1;
+int main() {
+    long long l, r;
+    cin >> l >> r;
+    
+    cout << "YES" << endl;
+    
+    for (long long i = 0; i <= (r - l) / 2; i++) {
+        cout << l + i * 2 << " " << l + i * 2 + 1 << endl;
     }
     
-    
-}
-int main(){
-
-    string s;
-    cin>>s;
-
-    stack<char> st;
-    string ans ="";
-
-    for (int i = 0; i < s.size(); i++)
-    {
-        char now = s[i];
-
-        if (now>='a' && now<='z') 
-        {
-            ans+=now;   
-        }else
-        {
-            
-            while (st.size() && prec(st.top())>= prec(now))
-            {
-                ans+=st.top();
-                st.pop();
-            }
-
-            st.push(now);
-            
-        }
-        
-        
-    }
-
-    while (st.size())
-    {
-        ans+=st.top();
-        st.pop();
-    }
-
-    cout<<ans<<endl;
-
     return 0;
 }

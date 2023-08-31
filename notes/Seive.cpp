@@ -3,20 +3,19 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int M = 1e9;
-bool marked[M] = {false};
-void seive1( int n){
+const int M = 1000000; 
+bool marked[M+1] = {false};
 
-    int sz = sqrt(n) + 1;  // add 1 to avoid precision error 
+void sieve(int n) {
+    marked[0] = marked[1] = true;
 
-    for (int i = 3; i<=sz; i+=2)
-    {
-        if(marked[i] = false){ // i is prime
-           
-            for(int j = i*i; j<=n;  j+= i+i) marked[j] = true;
+    for (int i = 2; i * i <= n; ++i) {
+        if (!marked[i]) { // i is prime
+            for (int j = i * i; j <= n; j += i) {
+                marked[j] = true; // Mark multiples of i as composite
+            }
         }
     }
-    
 }
 
 

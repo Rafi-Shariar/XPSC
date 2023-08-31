@@ -6,6 +6,21 @@ void fast(){
     cin.tie(nullptr);
 }
  map<ll,int>mp;
+ bool prime(ll num){
+
+   if (num <= 1)return false; 
+   if (num <= 3) return true;
+   if (num % 2 == 0 || num % 3 == 0) return false;
+
+    for (int i = 5; i * i <= num; i += 6) {
+        if (num % i == 0 || num % (i + 2) == 0) {
+            return false;
+        }
+    }
+
+    return true;
+    
+}
 void numberofDivisor( ll n){
    
     while( n%2==0){
@@ -21,24 +36,14 @@ void numberofDivisor( ll n){
         }
     }
 
+    if(n>2) if(prime(n)) mp[n]++;
+
+
+
     
 
 }
-bool prime(ll num){
 
-   if (num <= 1)return false; 
-   if (num <= 3) return true;
-   if (num % 2 == 0 || num % 3 == 0) return false;
-
-    for (int i = 5; i * i <= num; i += 6) {
-        if (num % i == 0 || num % (i + 2) == 0) {
-            return false;
-        }
-    }
-
-    return true;
-    
-}
 int main(){
 
     fast();

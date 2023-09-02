@@ -1,30 +1,21 @@
-#include <bits/stdc++.h>
-using namespace std;
-typedef long long ll;
-typedef pair<int,int> pii;
-#ifdef LOKAL
-#include "DEBUG_TEMPLATE.h"
-#else
-#define HERE
-#define debug(args...)
-#endif
+#include<stdio.h>
+#include<string.h>
+int main(){
 
+    char str[100];
+    gets(str);
 
-void fast(){
-   ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-}
-int main()
-{
-    fast();
+    int upper=0;
 
-    int t=1;
-    cin>>t;
-
-    while(t--)
+    for (int i = 0; str[i] != '\0'; i++)
     {
-        
+        if(str[i]>='A' && str[i]<='Z') upper++;
     }
 
-    return 0;
+    printf("%d",upper);
+    
+
+
+
+
 }

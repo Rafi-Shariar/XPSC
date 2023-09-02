@@ -3,21 +3,21 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int M = 1000000; 
-bool marked[M+1] = {false};
+const int N=1e6;
+bool marked[N];
 
 void sieve(int n) {
     marked[0] = marked[1] = true;
+    for( int i = 4; i<N; i+=2) marked[i] = true;
 
-    for (int i = 2; i * i <= n; ++i) {
-        if (!marked[i]) { // i is prime
-            for (int j = i * i; j <= n; j += i) {
-                marked[j] = true; // Mark multiples of i as composite
+    for (int i = 3; i * i <= n; i+=2) {
+        if (!marked[i]) { 
+            for (int j = i * 2; j < n; j += i) {
+                marked[j] = true; 
             }
         }
     }
 }
-
 
 // memory effifien
 

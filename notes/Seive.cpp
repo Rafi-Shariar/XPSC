@@ -19,6 +19,33 @@ void sieve(int n) {
     }
 }
 
+
+
+//seive for generation 664579 prime numbers
+const int N=1e7;
+int marked[N+5];
+vector<int>v;
+
+void seive(){
+
+    marked[0]=marked[1]=true;
+    v.push_back(2);
+    for( int i=4; i<N; i+=2) marked[i]=true;
+
+    for( int i=3; i<=N; i+=2){
+
+        if(!marked[i]){
+            v.push_back(i);
+            
+            if(i<=sqrt(N)){
+
+                for (int j = i*i; j <= N; j+=i*2) marked[j]= true;
+                
+            }
+        }
+    }
+}
+
 // memory effifien
 
 #define M2 100000000

@@ -2,6 +2,7 @@
 //regular
 #include<bits/stdc++.h>
 using namespace std;
+typedef long long ll;
 
 const int N=1e6;
 bool marked[N];
@@ -22,8 +23,8 @@ void sieve(int n) {
 
 
 //seive for generation 664579 prime numbers
-const int N=1e7;
-int marked[N+5];
+const int N=90000001;
+bool marked[N+5];
 vector<int>v;
 
 void seive(){
@@ -45,6 +46,50 @@ void seive(){
         }
     }
 }
+
+
+
+
+// segment seive
+
+vector<ll> segment_sieve(ll l, ll r) {
+    ll lim = sqrt(r);
+    vector<bool> marked(lim + 1, false);
+    vector<ll> primes_r;
+
+    for (ll i = 2; i <= lim; i++) {
+        if (!marked[i]) {
+            primes_r.push_back(i);
+            for (ll j = i * i; j <= lim; j += i)
+                marked[j] = true;
+        }
+    }
+
+    vector<bool> seg_marked(r - l + 1, true);
+
+    for (auto i : primes_r) {
+        for (ll j = max(i * i, (l + i - 1) / i * i); j <= r; j += i) {
+            seg_marked[j - l] = false;
+        }
+    }
+
+    if (l == 1)
+        seg_marked[0] = false;
+
+    vector<ll> primes_in_segment;
+    for (ll i = l; i <= r; i++) {
+        if (seg_marked[i - l]) {
+            primes_in_segment.push_back(i);
+        }
+    }
+
+    return primes_in_segment;
+}
+
+
+
+
+
 
 // memory effifien
 

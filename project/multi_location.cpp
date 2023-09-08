@@ -106,7 +106,61 @@ void sigle_destination(){
 
 }
 
-void multiple_destinations(){
+void multiple_destinations(int number_of_locations){
+
+    string from;
+    cout<<"From : "; cin>>from;
+
+    cout<<"Locations : ";
+    vector<string>v(number_of_locations);
+    for( int i=0; i<number_of_locations; i++) cin>>v[i];
+
+
+    int f; 
+    for(auto i : mp){
+        if(i.second == from) f = i.first;
+    }
+
+    vector<string>route;  route.push_back(from);
+
+    int src = f;
+
+ 
+
+   //for (int i = 1; i <=5; i++) cout<<i<<"-->"<<d[i]<<endl;
+   
+   int ttt= number_of_locations;
+   while (ttt--)
+   {
+        dijkstra(f);
+        vector<pair<int,int>>cur_sort;
+        vector<int>indx;
+
+        for (int  i = 0; i < v.size() ; i++)
+        {
+            string s = v[i];
+            
+            for(auto i : mp){
+                if( i.second == s) indx.push_back(i.first);
+            }
+        }
+
+        for (int i = 0; i < indx.size(); i++)
+        {
+            cur_sort.push_back({d[ indx[i]]  , indx[i]});
+        }
+
+        sort(cur_sort.begin(),cur_sort.end());
+
+        //for(auto i : cur_sort) cout<<i.first<<" "<<i.second<<endl;
+        
+        
+
+   }
+   
+   
+   
+    
 
 
 
@@ -126,7 +180,7 @@ int main(){
     int n_of_des; cin>>n_of_des;
 
     if(n_of_des==1) sigle_destination();
-    else multiple_destinations();
+    else multiple_destinations( n_of_des);
 
   
 

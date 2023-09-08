@@ -17,3 +17,8 @@ B D 30
 A D 40
 C E 50
 C D 60
+
+multi 
+3
+Mirpur
+Dhanmondi Gulshan Banani

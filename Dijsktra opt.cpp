@@ -75,9 +75,6 @@ void print_shortest_path(int destination) {
 
         map_assing();
 
-
-
-      
       cin>>node>>egdes;
 
       for (int i = 0; i < egdes; i++)

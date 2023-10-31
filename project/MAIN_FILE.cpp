@@ -6,7 +6,7 @@ vector< pair<int,int> >adj_list[N];
 int d[N], visited[N], parent[N];
 int node, edges;
 map<int,string>mp;
-
+set<string>locations;
 void map_assign(){
 
     ifstream inputFile("F:/phitron/XPSC/project/map_set.txt");
@@ -19,6 +19,7 @@ void map_assign(){
         string name; 
         inputFile >> number_city >> name;
         mp[number_city] = name;
+        locations.insert(name);
     }
 
 }
@@ -89,8 +90,10 @@ void print_path(int des) {
 void sigle_destination(){
 
    string from,to;  
-   printf("From : "); cin>>from;
-   printf("To : "); cin>>to;
+   printf("From : ");  cin >> from;
+   printf("To : ");  cin >> to;
+
+   cout << from << "--" << to << endl;
    int f,t;
 
    for(auto i : mp){
@@ -106,27 +109,29 @@ void sigle_destination(){
 
 }
 
-void multiple_destinations(){
-
-
-
-}
 
 int main(){
 
     map_assign();
     data_collection();
 
-    printf("List of Locations : ");
-    for(auto i : mp ) cout<<i.second<<" ";
+    cout << "Listed Location : \n";
+    for(int i =1; i<=50; i++) cout<<"-";
+    cout<<endl;
+
+    for(auto i : locations) cout << i << endl;
+
+    // printf("List of Locations : ");
+    // for(auto i : mp ) cout<<i.second<<" ";
+
+
     cout<<endl<<endl;
+    
+    sigle_destination();
+
+    cout << endl;
 
 
-    printf("Number of destination : ");
-    int n_of_des; cin>>n_of_des;
-
-    if(n_of_des==1) sigle_destination();
-    else multiple_destinations();
 
   
 

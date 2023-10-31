@@ -1,67 +1,49 @@
-#include<bits/stdc++.h>
-using namespace std;
-#define ll long long int
-void fast(){
-   ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node* link;
+};
+
+struct node* insertHead(struct node* head, int data) {
+    struct node* newnode = (struct node*)malloc(sizeof(struct node));
+    if (newnode == NULL) {
+        printf("Memory allocation failed\n");
+        exit(1);
+    }
+    newnode->data = data;
+    newnode->link = head;
+    return newnode;
 }
 
-ll numberofDivisor( ll n){
-
-    map<ll,int>mp;
-
-    while( n%2==0){
-        mp[2]++;
-        n/=2;
+void traverse(struct node* node) {
+    while (node != NULL) {
+        printf("%d->", node->data);
+        node = node->link;
     }
-
-    for (ll i = 3; i <= sqrt(n); i+=2)
-    {
-        while( n % i == 0){
-            mp[i]++;
-            n/=i;
-        }
-    }
-
-    if(n>2) mp[n]++;
-
-    ll ans = 1;
-    for( auto i : mp){
-        ans *= (i.second + 1);
-    }
-
-    return ans;
-
+    printf("\n");
 }
 
-int main(){
-
-    fast();
-
-    int t; cin>>t;
-
-    while (t--)
-    {
-        ll l,r;
-        cin>>l>>r;
-
-        ll val = 0;
-        ll divs = 0;
-
-        for (ll i = l; i <= r; i++)
-        {
-            ll cur = numberofDivisor(i);
-
-            if(cur > divs){
-                divs = cur;
-                val = i;
-            }
-        }
-
-        printf("Between %lld and %lld, %lld has a maximum of %lld divisors.\n", l,r,val,divs);
-        
+int main() {
+    struct node* head, * b, * c;
+    head = (struct node*)malloc(sizeof(struct node));
+    b = (struct node*)malloc(sizeof(struct node));
+    c = (struct node*)malloc(sizeof(struct node));
+    if (head == NULL || b == NULL || c == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
     }
-       
-
+    head->data = 5;
+    b->data = 10;
+    c->data = 20;
+    head->link = b;
+    b->link = c;
+    c->link = NULL;
+    printf("LinkedList: ");
+    traverse(head);
+    head = insertHead(head, 100);
+    printf("\nLinkedList after insertion: ");
+    traverse(head);
     return 0;
 }

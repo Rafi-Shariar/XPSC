@@ -17,28 +17,22 @@ void fast(){
 int main()
 {
     fast();
+    map<string,int>mp;
 
-    int t=1;
-    cin>>t;
+    mp["tourist"] = 3858;
+    mp["ksun48"]= 3679;
+    mp["Benq"]= 3658;
+mp["Um_nik"]= 3648;
+mp["apiad"]= 3638;
+mp["Stonefeang"]= 3630;
+mp["ecnerwala"]= 3613;
+mp["mnbvmar"]= 3555;
+mp["newbiedmy"]= 3516;
+mp["semiexp"]= 3481;
 
-    while(t--)
-    {
-        ll n; cin>>n;
-        ll sum = 0;
-        ll i;
+  string s; cin>>s;
+  cout<<mp[s]<<endl;
 
-        for ( i = 1; i*i < n; i++)
-        {
-            if(n%i==0)sum+=i; //sum += i+n/i;
-            
-        }
-
-        if(i*i == n) sum+=i;
-        sum-=n;
-
-         cout<<sum<<endl;
-        
-    }
 
     return 0;
 }

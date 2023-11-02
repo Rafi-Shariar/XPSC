@@ -7,6 +7,7 @@ int d[N], visited[N], parent[N];
 int node, edges;
 map<int,string>mp;
 set<string>locations;
+map<char, vector<string> > sorting_loc;
 void map_assign(){
 
     ifstream inputFile("F:/phitron/XPSC/project/map_set.txt");
@@ -79,6 +80,7 @@ void dijkstra(int src){
 
 void print_path(int des) {
 
+
     if (parent[des] == -1) {
         cout << mp[des];
         return;
@@ -93,7 +95,9 @@ void sigle_destination(){
    printf("From : ");  cin >> from;
    printf("To : ");  cin >> to;
 
-   cout << from << "--" << to << endl;
+   if( from[0] >='a' && from[0] <= 'z') from[0] = from[0]- 32;
+   if( to[0] >='a' && to[0] <= 'z') to[0] = to[0]- 32;
+   
    int f,t;
 
    for(auto i : mp){
@@ -104,32 +108,73 @@ void sigle_destination(){
     int src = f;
     dijkstra(src);
 
+    cout << endl;
+
     cout<<"Shortest distance from "<<mp[f]<<" to "<<mp[t]<<": "<<d[t]<<" km"<<endl;
     print_path(t);
 
+    cout << endl << endl;
+
 }
 
+void sort_loc(){
+    sorting_loc['A'];   sorting_loc['B'];   sorting_loc['D'];   sorting_loc['F'];   sorting_loc['G'];
+     sorting_loc['J'];   sorting_loc['K'];   sorting_loc['M'];   sorting_loc['N'];   sorting_loc['O'];
+      sorting_loc['P'];   sorting_loc['R'];   sorting_loc['S'];   sorting_loc['T'];   sorting_loc['U']; 
+
+
+    for(auto i : locations){
+
+        string s = i;
+        char ch = s[0];
+        sorting_loc[ch].push_back(s);
+    }      
+
+}
 
 int main(){
 
     map_assign();
     data_collection();
+    sort_loc();
 
-    cout << "Listed Location : \n";
-    for(int i =1; i<=50; i++) cout<<"-";
-    cout<<endl;
+    while(true){
 
-    for(auto i : locations) cout << i << endl;
+        cout << "Listed Location : \n";
+        for(int i =1; i<=50; i++) cout<<"-";
+        cout<<endl;
 
-    // printf("List of Locations : ");
-    // for(auto i : mp ) cout<<i.second<<" ";
+        for(auto i : sorting_loc){
 
+            if( i.second.size() > 0){
+                cout << i.first << " ---> ";
 
-    cout<<endl<<endl;
+                for(int j=0; j< i.second.size(); j++){
+
+                    cout << i.second[j] << "  ";
+                }
+                cout << endl;
+            }
+
+        }
+
+        cout<<endl;
     
-    sigle_destination();
+        sigle_destination();
 
-    cout << endl;
+        cout << endl << endl;
+
+        for(int i =1; i<=50; i++) cout<<"-";
+        cout<<endl;
+
+        for(int i = 0; i<N; i++){
+            d[i] = 0 ; visited[i] = 0; parent[i] = 0;
+        }
+
+
+    }
+
+
 
 
 
